@@ -122,12 +122,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="helper\BaselineMethods.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="helper\TestDataHelper.cs" />
     <Compile Include="model\Address.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="steps\GET_YaAddressSteps.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="stories\GET_YaAddress.feature" />
   </ItemGroup>

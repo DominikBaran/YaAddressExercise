@@ -12,11 +12,13 @@ namespace YaAddressAPITest.steps
     public sealed class GET_YaAddressSteps : BaselineMethods
     {
         private readonly ScenarioContext _scenarioContext;
-        private const string apiUrl = "https://www.yaddress.net/api/Address";
+        private readonly Config conf;
 
         public GET_YaAddressSteps(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
+            if (conf == null)
+                conf = new Config();
         }
 
         [Given("accepted header is set to (.*)")]
@@ -93,7 +95,7 @@ namespace YaAddressAPITest.steps
         [When("the request is send")]
         public void sendValidRequest()
         {
-            RestClient client = new RestClient(apiUrl);
+            RestClient client = new RestClient(conf.getAddressUrl());
             RestRequest request = new RestRequest();
 
             var parameters = _scenarioContext.Get<List<KeyValuePair<string, string>>>("urlParameters");
